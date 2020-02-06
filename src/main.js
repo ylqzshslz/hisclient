@@ -136,7 +136,7 @@ function fenye(countUrl, dataUrl, dataParam, pageNum, maxNum, callback) {
 				dataParam = {};
 			}
 			dataParam.beginNum = beginNum;
-			dataParam.maxNum = maxNum;
+			dataParam.maxPageNum = maxNum;
 			this.$axios.post(dataUrl, dataParam)
 				.then(response => {
 					result.pageNum = pageNum;
@@ -163,25 +163,19 @@ function fenye(countUrl, dataUrl, dataParam, pageNum, maxNum, callback) {
 }
 Vue.prototype.$fenye=fenye;
 
-//router.beforeEach(function(to,from,next){
-//	const nextRoute=[
-//		'/admin',
-//		'/admin/newsTypeList',
-//		'/admin/newsList',
-//		'/admin/addNewsType',
-//		'/admin/updateNewsType',
-//		'/admin/addNews',
-//		'/admin/updateNews'
-//	];
-//	let sysUser = sessionStorage.getItem('sysUser');
-//	if(nextRoute.indexOf(to.path)>=0){
-//		if(users==null){
-//			router.push('/login');
-//			location.reload();
-//		}
-//	}
-//	next();
-//});
+router.beforeEach(function(to,from,next){
+	const nextRoute=[
+		'/admin'
+	];
+	let user = sessionStorage.getItem('user');
+	if(nextRoute.indexOf(to.path)>=0){
+		if(user==null){
+			router.push('/login');
+			location.reload();
+		}
+	}
+	next();
+});
 
 new Vue({
   router,

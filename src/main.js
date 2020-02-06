@@ -11,7 +11,7 @@ Vue.use(element)
 
 Vue.config.productionTip = false
 
-axios.defaults.baseURL = 'http://localhost:8081/crm/';
+axios.defaults.baseURL = 'http://localhost:8081/his/';
 //将axios添加入Vue的原型链中,以后就可以这样使用了:this.$axios
 Vue.prototype.$axios = axios;
 Vue.prototype.$echarts = echarts;

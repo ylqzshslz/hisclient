@@ -82,5 +82,6 @@
 		width: 400px;
 		margin: 0 auto;
 		margin-top: 150px;
+		background-color: lightblue;
 	}
 </style>
